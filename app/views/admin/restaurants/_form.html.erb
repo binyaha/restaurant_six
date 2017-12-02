@@ -1,6 +1,6 @@
 <% if @restaurant.errors.any? %>
-<h4>We have some errors %>
-  <% @restaurant.errors.full_messages.all do |msg| %>
+<h4>We have some errors </h4>
+  <% @restaurant.errors.full_messages.each do |msg| %>
   <p><%= msg %></p>
   <% end %>
   <% end %>
