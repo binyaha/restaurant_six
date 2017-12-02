@@ -1,7 +1,7 @@
 class Admin::RestaurantsController < ApplicationController
 
   before_action :check_admin
-  before_action :find_restaurant, only: [:show]
+  before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
 
 
   def index
@@ -23,6 +23,23 @@ class Admin::RestaurantsController < ApplicationController
     render :new
   end
  end
+
+ def update 
+
+  if @restaurant.update(restaurant_params)
+    flash[:notice]= "更新成功"
+    redirect_to admin_restaurant_path(@restaurant)
+  else
+    flash[:alert]= "更新失敗"
+    render :edit
+  end
+
+ end
+
+  def destroy
+    @restaurant.delete
+    redirect_to admin_restaurants_path
+  end
 
 
 
