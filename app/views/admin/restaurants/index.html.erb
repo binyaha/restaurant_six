@@ -1,15 +1,13 @@
-<h1>這是後台</h1>
-<ul>
+<h1>這是後台11</h1>
 
 <% @restaurants.each do |restaurant| %>
 <li>
   <%= restaurant.name %>
   <%= link_to "Show", admin_restaurant_path(restaurant) %>
-  <%= link_to "Edit", edit_admin_restaurant_path(restaurant) %>
-  <%= link_to "Destroy", admin_restaurant_path(restaurant), method: :delete, data: {confirm: "確定刪除嗎??"} %>
+  <%= link_to "edit", edit_admin_restaurant_path(restaurant) %>
+  <%= link_to "delete", admin_restaurant_path(restaurant),method: :delete, data: {confirm: "Are you sure??"} %>
 </li>
   <% end %>
-</ul>
-<%= paginate @restaurants %>
+  <%= paginate @restaurants %>
 
 <%= link_to "New restaurant", new_admin_restaurant_path %>
