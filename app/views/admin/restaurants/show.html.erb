@@ -5,6 +5,7 @@
 <li>地址: <%= @restaurant.address %></li>
 <li>開店時間: <%= @restaurant.opening_hours %></li>
 <li>評價: <%= @restaurant.description %></li>
+image:<%= image_tag @restaurant.image, width: '300px' %>
 <hr>
 
 <%= link_to "返回", admin_root_path %>
