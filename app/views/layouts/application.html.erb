@@ -9,6 +9,22 @@
   </head>
 
   <body>
+    <% if flash[:notice] %>
+    <div class="container">
+      <div class="row">
+        <div class="alert alert-success"><%= notice %></div>
+      </div>
+    </div>
+    <% end %>
+     <% if flash[:alert] %>
+    <div class="container">
+      <div class="row">
+        <div class="alert alert-danger"><%= alert %></div>
+      </div>
+    </div>
+    <% end %>
+
+
    <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
