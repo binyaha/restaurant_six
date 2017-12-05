@@ -1,4 +1,4 @@
-class Admin::RestaurantsController < ApplicationController
+class Admin::RestaurantsController < Admin::BaseController
 
   before_action :check_admin
   before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
