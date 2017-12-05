@@ -4,6 +4,18 @@
     <%= link_to 'Restaurant', admin_restaurants_path %> |
     <%= link_to 'Categories', admin_categories_path %>
   </div>
+  <div class="form-inline">
+    <%= form_for [:admin, @category] do |f| %>
+      <div class="form-group">
+        <%= f.text_field :name, placeholder: "restaurant category", class: "form-control" %>
+      </div>
+      <%= f.submit class: "btn btn-primary" %>
+      <% if @category.errors.any? %>
+      <%= @category.errors.full_messages.to_sentence %>
+      <% end %>
+    <% end %>
+  </div>
+
   <div class="row">
     <div class="col-md-12">
       <table class="table table-striped table-boerded">
@@ -11,14 +23,18 @@
           <tr>
             <th>id</th>
             <th>餐廳分類</th>
+            <th>#</th>
           </tr>
         </thead>
         <tbody>
         
             <% @categories.each do |category| %>
               <tr>
-                <td><%= category.id %></td>
+                <td scope="row"><%= category.id %></td>
                 <td><%= category.name %></td>
+                <td><%= link_to "Edit", admin_categories_path(id: category.id) %>
+                    <%= link_to "Destroy", admin_category_path(category), method: :delete, date: {confirm: "Are you sure"} %>
+                </td>
               </tr>
             <% end %>
           
