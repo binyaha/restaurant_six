@@ -34,6 +34,9 @@
           <p class="text-muted">
           <em><%= time_ago_in_words(comment.created_at) %> </em>
           </p>
+          <% if current_user.admin? %>
+             <%= link_to "Delete", restaurant_comment_path(@restaurant, comment), method: :delete, data: {confirm: "刪除留言可能引發使用者不滿 確定刪除??"} %>
+          <% end %> 
         </div>
         <hr>
       <% end %>
