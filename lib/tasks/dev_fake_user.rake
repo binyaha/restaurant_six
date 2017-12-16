@@ -9,6 +9,12 @@ namespace :dev do
         password:111111
         )
     end
+
+     User.all.each do |user|
+      user.name = user.email.split("@")[0]
+      user.save
+    end
+
     puts "have created fake user"
     puts "now you have #{User.count} user data"
   end

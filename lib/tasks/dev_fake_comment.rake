@@ -6,14 +6,12 @@ namespace :dev do
         Restaurant.all.each do |restaurant|
             3.times do |j|
             Comment.create!(
-      
             content: FFaker::Lorem.paragraph,
             restaurant_id: restaurant.id,
             user_id: User.all.sample.id
-
-        )
+            )
+            end
         end
-    end
     puts "have created fake comments"
     puts "now you have #{Comment.count} comments data each restaurant 3 comments"
   end
