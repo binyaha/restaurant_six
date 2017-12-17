@@ -15,4 +15,29 @@
       <% end %>
     </div>
   </div>
+  <hr>
+  
+  <div class="panel panel-default " >
+    <div class="panel-heading">
+       <%= "#{@commented_restaurants.count}已評論餐廳" %>
+    </div>
+    <div class="panel-body">
+      
+      <% @commented_restaurants.each do |restaurant| %>
+
+        <% if @temp != restaurant %>
+        <%= link_to restaurant_path(restaurant) do %>
+          <div class="my-restaurant">
+            <div>
+              <%= image_tag restaurant.image, class: "restaurant-image"  %>
+            </div>
+            <h5><storng><%= restaurant.name %></storng></h5>
+          </div>
+        <% end %>
+        <% end %>
+        <% @temp=restaurant %>
+      <% end %>
+    </div>
+  </div>
+
 </div>

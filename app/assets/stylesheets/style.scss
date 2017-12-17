@@ -3,6 +3,7 @@
   border-radius: 4px;
   padding: 4px;
   margin-bottom: 20px;
+  height: 320px;
 }
 
 .restaurant-item img {
@@ -13,3 +14,24 @@
 .restaurant-item .caption {
   padding: 10px;
 }
+
+.my-restaurant {
+   display: inline-block;
+   text-align: center;
+   margin: 10px;
+ 
+
+}
+.my-restaurant > div {
+  height: 70px;
+}
+
+.restaurant-image {
+
+   max-height: 100%;
+   border-radius: 15px;
+}
+
+.panel a:hover .my-restaurant {
+  background-color: #eee;
+ }
