@@ -18,7 +18,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'devise'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -29,10 +29,23 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+
+
+#fuction1-step6 安裝devise 並需要generate devise:install＆devise:views & devise users(會面這個是model 最重要)
+gem 'devise' 
+#---------------------轉到users 的db table
+#function3-step1 底下是要安裝的gem 這邊寫1個step 實際上會一條一條寫
 gem 'carrierwave'
 gem 'ffaker'
 gem 'kaminari'
 gem 'jquery-rails'
+#----------先看carrierwave 轉到migration add_image_to_restaurant
+
+
+
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :production do

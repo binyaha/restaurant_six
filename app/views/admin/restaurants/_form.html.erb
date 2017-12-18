@@ -1,3 +1,4 @@
+<!-- Create失敗時 顯示錯誤訊息 -->
 <div class="container">
   <div class="row">
     <% if @restaurant.errors.any? %>
@@ -9,11 +10,13 @@
       <% end %>
     <% end %>
     <hr>
+<!--  -->
 
-
+<!-- function2-step7 建立輸入的form   -->
 <%= form_for [:admin, @restaurant] do |f| %>
+<!-- function4-step7 下拉選單的helper 每個參數要填什麼是重點 -->
 <%= f.collection_select :category_id, Category.all, :id , :name, option = {prompt: true}, {class: "form-control"} %>
-
+<!-- 由於form傳入資料要用strong parameters 到controller restaurants 修改 -->
 <div class="form-group">
 <%= f.label :name, "Name" %>
 <%= f.text_field :name %>
@@ -35,9 +38,12 @@
 <%= f.text_area :description %>
 </div>
 <div class="form-group">
+
 <%= f.label :image, "Photo" %>
+<!--function3-step4 修改成carriverwave語法 並顯示圖片 -->
 <%= image_tag @restaurant.image, width: "300px" if @restaurant.image?  %>
 <%= f.file_field :image %>
+<!-- carriverwave掛載完成 換ffaker 看lib/task/dev_fake_restaurant.rake -->
 </div>
 
 <div class="form-group">
@@ -45,6 +51,7 @@
 </div>
 
 <% end %>
+<!-- new完成 轉回controller前 看看最上面的提示錯誤寫法 接著做create功能  -->
   </div>
 </div>
 

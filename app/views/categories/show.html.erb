@@ -1,3 +1,4 @@
+<!-- unction5-step8 跟一般的index很像 差別在讓按鈕顯示的地方-->
 <div class="container">
   <div class="row">
 
@@ -5,7 +6,7 @@
       <li role="presentation">
         <%= link_to "全部餐廳", root_path %>
       </li>
-      <!-- 這邊判斷category==@category的時候要加 li.active -->
+      <!-- 這邊判斷category==@category 讓特定按鈕變色-->
       <% @categories.each do |category| %>
         <li role="presentation" class="<%= "active" if category == @category %>">
           <%= link_to category_path(category) do %>
@@ -21,3 +22,4 @@
 
   </div>
 </div>
+<!-- function5完成 開始做comment功能 看db:comments -->

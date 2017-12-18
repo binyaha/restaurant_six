@@ -9,6 +9,8 @@
   </head>
 
   <body>
+    
+    <!--#function1-step9 增加flash noice 前端的修改是後來才加的-->
     <% if flash[:notice] %>
     <div class="container">
       <div class="row">
@@ -29,8 +31,9 @@
       </div>
     </div>
     <% end %>
+    <!-- 繼續看底下 -->
 
-
+  <!-- 導覽列前端 負責RWD按鈕 -->
    <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -41,11 +44,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+    <!--  -->
+
+    <!-- 導覽列前端 網站Mark -->
       <%= link_to "餐廳評論網", root_path, class: "navbar-brand" %>
     </div>
- 
+    <!--  -->
+    <!-- 導覽列前端 裡面有的按鈕 -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
+
+    <!--function1-step10 增加可以點登入 登出 編輯 註冊的連結 此時沒做個人資料和前端-->
       <% if current_user %>
        <% if current_user.admin? %>
         <li><%= link_to 'Admin後台', admin_restaurants_path %></li>
@@ -62,7 +71,8 @@
   </div>
 </div>
 </nav>
-
+    <!-- 轉到admin::controller restaurants -->
+    <!-- -->
     <%= yield %>
   </body>
 </html>

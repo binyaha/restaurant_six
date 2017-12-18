@@ -8,6 +8,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
+
+#function7-step4 註冊時就從email寫入name屬性
    def create
      super
 
@@ -16,6 +18,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
      @user.save
 
    end
+#-------------通知路由要用它 看routes.rb
+
 
   # GET /resource/edit
   # def edit

@@ -1,6 +1,11 @@
+<!-- function1-step6 隨便打些文字讓人知道這是後台頁面 後來被刪除 
+     此時開啟網頁測試 http://localhost:3000 會進到前台 http://localhost:3000/admin會進到後台
+     接著看gemfile
+      -->
+
 
 <div class="container">
-  <h1>這是後台</h1>
+ 
   <div>
     <%= link_to 'Restaurant', admin_restaurants_path %> |
     <%= link_to 'Categories', admin_categories_path %>
@@ -8,23 +13,31 @@
   <div class="row">
     <div class="col-md-12">
       <div>
+        <!--function2-step3 新增餐廳按鈕 -->
       <%= link_to "New restaurant", new_admin_restaurant_path, class: "btn btn-primary" %>
+        <!-- 底下還有 -->
     </div>
 
   <table class="table table-striped">
     <thead>
       <tr>
         <th>id</th>
+<!-- function4-step5 新增了"餐廳分類"欄位 -->
         <th>餐廳分類</th>
+<!-- 看地38行 -->
         <th>餐廳名</th>
         <th>#</th>
       </tr>
     </thead>
     <tbody>
+
+      <!--function2-step4 讓所有的餐廳印出name 並有Show Edit Delete 連結按鈕(忽略前端) -->
       <% @restaurants.each do |restaurant| %>
         <tr>
           <th scope="row"><%= restaurant.id %></th>
-          <td><%= restaurant.category.name %></td>
+<!-- function4-step6 增加餐廳分類的資料 -->
+          <td><%= restaurant.category.name %></td> 
+<!-- 接著要再新增餐廳的地方增加 餐廳分類下拉選單 看view restaurants/_form -->
           <td><%= restaurant.name %></td>
           <td>
             <%= link_to "Show", admin_restaurant_path(restaurant) %>
@@ -33,10 +46,14 @@
           </td>
         </tr>
       <% end %>
+      <!-- 轉回controller 做new功能 -->
     </tbody>
   </table>
   <div class="text-center">
+  <!-- function3-step7 分頁的按鈕 -->
     <%= paginate @restaurants %>
+  <!-- 分頁完成 接著安裝好bootstrap jquery 完成所有美化的前端 function3完成 
+    開始function4 category分類製作 看db categories-->
   </div>
 </div>
 </div>

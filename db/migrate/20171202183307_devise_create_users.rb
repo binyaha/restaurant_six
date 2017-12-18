@@ -11,9 +11,16 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
 
       ## Rememberable
       t.datetime :remember_created_at
+
+      #function1-step7 增加role屬性 為了有管理者和一般user的區別 
       t.string :role
+      #----------------轉到controller application
+
+      #function7-step1 給user新增屬性
       t.string :intro
       t.string :avatar
+      #--------------看routes.rb
+
       #name屬性在migrate裡
       ## Trackable
       t.integer  :sign_in_count, default: 0, null: false

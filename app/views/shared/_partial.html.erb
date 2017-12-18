@@ -1,3 +1,5 @@
+
+<!-- function5-step4 讓餐廳顯示出來 並且名字是一個連結按鈕。之後可以嘗試把整個圖片都變連結 -->
 <div class="container">
   <div class="row">
 <% @restaurants.each do |restaurant| %>
@@ -14,10 +16,11 @@
     <% end %>
   </div>
       
-    <!-- 有generate kaminari paginate bootstrap style -->
+  
   <div class="row">
     <div class="text-center">
       <%= paginate @restaurants %>
     </div>
   </div>
   </div>
+  <!-- 完成前台index頁面 開始做前台restaurants的show功能 回controller restaurants 

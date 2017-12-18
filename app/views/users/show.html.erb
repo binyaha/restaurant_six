@@ -1,4 +1,4 @@
-
+<!--function7-step4 顯示出user的name intro avatar name是後來從email來的屬性 -->
 <div class="container">
   <div class="row">
     <div class="col-xs-4">
@@ -7,7 +7,8 @@
     <div class="col-xs-8">
       <h2><%= @user.name %></h2>
       <h4><%= @user.intro %></h4>
-
+      
+      <!-- 如果現在的user是現在profile的話 才出現編輯按鈕 -->
       <% if @user == current_user %>
         <%= link_to "編輯", edit_user_path(@user), class: "btn btn-primary" %>
       <% else %>
@@ -16,7 +17,9 @@
     </div>
   </div>
   <hr>
-  
+<!-- 到controller user/Registrations 這是要另外產生的 -->
+
+<!-- function8-step3 顯示評論過的餐廳 -->
   <div class="panel panel-default " >
     <div class="panel-heading">
        <%= "#{@commented_restaurants.count}已評論餐廳" %>
@@ -24,8 +27,9 @@
     <div class="panel-body">
       
       <% @commented_restaurants.each do |restaurant| %>
-
+        <!-- 重複出現過的餐廳不顯示 -->
         <% if @temp != restaurant %>
+        <!-- 整個餐廳div 變成按鈕 -->
         <%= link_to restaurant_path(restaurant) do %>
           <div class="my-restaurant">
             <div>
@@ -41,3 +45,4 @@
   </div>
 
 </div>
+<!-- 完成function8 to be continued -->

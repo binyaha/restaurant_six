@@ -1,3 +1,4 @@
+  <!-- unction5-step6 顯示出餐廳的attributes -->
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -24,7 +25,9 @@
     <div class="clearfix"></div>
     </div>
   </div>
+  <!-- restaurants的Show頁面 開始做餐廳分類按鈕的功能 由於這是按鈕路徑是跟categories有關 看controller categories -->
 
+  <!-- function6-step2 第一段顯示所有comment -->
   <div class="container">
     <div class="row">
       <% @restaurant.comments.each do |comment| %>
@@ -34,6 +37,7 @@
           <p class="text-muted">
           <em><%= time_ago_in_words(comment.created_at) %> </em>
           </p>
+          <!-- 如果現在的user是管理員 出現delete按鈕 -->
           <% if current_user.admin? %>
              <%= link_to "Delete", restaurant_comment_path(@restaurant, comment), method: :delete, data: {confirm: "刪除留言可能引發使用者不滿 確定刪除??"} %>
           <% end %> 
@@ -44,7 +48,7 @@
   </div>
 
 
-
+<!-- function6-step3 第二段顯示輸入comment的form 和兩個按鈕 -->
   <div class="container">
     <div class="row">
       <%= form_for [@restaurant, @comment] do |f| %>
@@ -58,4 +62,5 @@
       <% end %>
     </div>
   </div>
+  <!-- 完成comment顯示 開始做create功能 看controller comments -->
 
