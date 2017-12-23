@@ -20,6 +20,9 @@ end
 
 member do
   get :dashboard
+  post :favorite
+  post :unfavorite
+
 end
 
 #-----------

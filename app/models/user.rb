@@ -10,7 +10,8 @@ class User < ApplicationRecord
 #function8-step1 為了透過comment找到restaurants
   has_many :restaurants, through: :comments
 #-------------看controller users(不是devise的喔)
-  
+  has_many :favorites, dependent: :destroy
+  has_many :favorited_restaurants, through: :favorites, source: :restaurants
 
 #function1-step13 在user這個物件增加admin?方法
 def admin?

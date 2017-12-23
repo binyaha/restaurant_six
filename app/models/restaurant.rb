@@ -7,6 +7,11 @@ has_many :comments,dependent: :destroy
 
 
 #function2-step10 驗證傳入資料是否有name屬性
+
+has_many :favorites, dependent: :destroy
+has_many :favorited_users, through: :favorites, source: :user
+
+
 validates_presence_of :name
 #------------create功能完成 回controller做show功能
 
