@@ -19,4 +19,8 @@ validates_presence_of :name
 mount_uploader :image, PhotoUploader
 #----轉到view _form頁面
 
+def is_favorited?(user)
+  self.favorited_users.include?(user)
+end
+
 end
