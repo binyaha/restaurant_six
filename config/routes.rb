@@ -13,6 +13,17 @@ Rails.application.routes.draw do
 resources :restaurants, only: [:index, :show] do
 #----------------看controller restaurants(前台的)
 
+#function9-step1 
+collection do
+  get :feeds
+end
+
+member do
+  get :dashboard
+end
+
+#-----------
+
 #function6-step2 增加comments路由 因為comment顯示時會對應到餐廳 在這邊用巢狀路由
   resources :comments, only: [:create, :destroy]
 end
