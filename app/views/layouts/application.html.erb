@@ -56,9 +56,11 @@
 
     <!--function1-step10 增加可以點登入 登出 編輯 註冊的連結 此時沒做個人資料和前端-->
       <% if current_user %>
-       <% if current_user.admin? %>
-        <li><%= link_to 'Admin後台', admin_restaurants_path %></li>
-       <% end %>
+       
+          
+          <% if current_user.admin? %>
+            <li><%= link_to 'Admin後台', admin_restaurants_path %></li>
+          <% end %>
         <li><p class="navbar-text">Hi, <%= current_user.email %></p></li>
         <li><%= link_to('登出', destroy_user_session_path, method: :delete) %></li>
         <li><%= link_to('修改密碼', edit_user_registration_path) %></li>

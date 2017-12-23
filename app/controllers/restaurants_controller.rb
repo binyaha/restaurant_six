@@ -19,4 +19,18 @@ def show
   
 end
 
+#function9-step2
+def feeds
+  @recent_restaurants=Restaurant.order(create_at: :desc).limit(10)
+  @recent_comments=Comment.order(create_at: :desc).limit(10)
+
+end
+
+ def feeds
+    @recent_restaurants = Restaurant.order(created_at: :desc).limit(10)
+    @recent_comments = Comment.order(created_at: :desc).limit(10)
+  end
+
+#-------------
+
 end

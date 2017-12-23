@@ -1,10 +1,22 @@
 
+
+
 <!-- function1-step5 隨便打些文字讓人知道這是前台頁面 後來被刪除 
      轉到view  admin/restaurants/index.html.erb -->
 
 
 <!-- function5-step3 製作所有餐廳分類的按鈕 按了底下會顯示特定分類的餐廳  -->
 <div class="container">
+  <ul class="nav nav-pills">
+    <li role="presentation">
+      <%= link_to "最新動態", feeds_restaurants_path %>
+    </li>
+    <li role="presentation", class="<%= "active" %>">
+      <%= link_to "首頁", restaurants_path %>
+    </li>
+  </ul>
+  <br >
+
   <div class="row">
 
   <ul class="nav nav-pills nav-pills-center">

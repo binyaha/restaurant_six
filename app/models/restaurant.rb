@@ -3,7 +3,7 @@ class Restaurant < ApplicationRecord
 belongs_to :category
 #------------先把原本restaurant後台index頁面加上分類的欄 轉到view admin/restaurants/index.html.erb
 
-has_many :comments
+has_many :comments,dependent: :destroy
 
 
 #function2-step10 驗證傳入資料是否有name屬性
