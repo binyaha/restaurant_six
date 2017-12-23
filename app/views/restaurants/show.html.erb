@@ -20,7 +20,10 @@
     
     <div class="col-md-8">
       <br>
-      <%= @restaurant.description %>
+      <div><%= @restaurant.description %></div>
+      <br>
+      <br>
+      <div><%= link_to "Dashboard", dashboard_restaurant_path(@restaurant), class: "btn btn-primary" %></div>
     </div>
     <div class="clearfix"></div>
     </div>

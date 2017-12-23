@@ -32,5 +32,8 @@ end
   end
 
 #-------------
+  def dashboard
+    @restaurant=Restaurant.find(params[:id])
+  end
 
 end
