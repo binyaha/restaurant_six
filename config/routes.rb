@@ -16,6 +16,7 @@ resources :restaurants, only: [:index, :show] do
 #function9-step1 
 collection do
   get :feeds
+  get :ranking
 end
 
 member do

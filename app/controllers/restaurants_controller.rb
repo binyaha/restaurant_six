@@ -35,6 +35,8 @@ end
   def favorite
     @restaurant = Restaurant.find(params[:id])
     @restaurant.favorites.create!(user: current_user)
+    @restaurant.favorites_count=@restaurant.favorites.count
+    @restaurant.save
     redirect_back(fallback_location: root_path)
   end
 
@@ -42,6 +44,8 @@ end
     @restaurant = Restaurant.find(params[:id])
     favorite=Favorite.where(user: current_user, restaurant: @restaurant)
     favorite.destroy_all
+    @restaurant.favorites_count=@restaurant.favorites.count
+    @restaurant.save
     redirect_back(fallback_location: root_path)
   end
 
@@ -57,6 +61,10 @@ end
     like.destroy_all
     redirect_back(fallback_location: root_path)
 
+  end
+
+  def ranking
+    @restaurant=Restaurant.first
   end
 
 end
