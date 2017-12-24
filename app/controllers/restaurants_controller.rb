@@ -20,16 +20,12 @@ def show
 end
 
 #function9-step2
-def feeds
-  @recent_restaurants=Restaurant.order(create_at: :desc).limit(10)
-  @recent_comments=Comment.order(create_at: :desc).limit(10)
 
+def feeds
+  @recent_restaurants=Restaurant.order(created_at: :desc).limit(10)
+  @recent_comments=Comment.order(created_at: :desc).limit(10)
 end
 
- def feeds
-    @recent_restaurants = Restaurant.order(created_at: :desc).limit(10)
-    @recent_comments = Comment.order(created_at: :desc).limit(10)
-  end
 
 #-------------
   def dashboard
@@ -47,6 +43,20 @@ end
     favorite=Favorite.where(user: current_user, restaurant: @restaurant)
     favorite.destroy_all
     redirect_back(fallback_location: root_path)
+  end
+
+  def like
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.likes.create!(user: current_user)
+    redirect_back(fallback_location: root_path)
+  end
+
+  def unlike
+    @restaurant=Restaurant.find(params[:id])
+    like=Like.where(user: current_user, restaurant: @restaurant)
+    like.destroy_all
+    redirect_back(fallback_location: root_path)
+
   end
 
 end
