@@ -11,6 +11,9 @@ has_many :comments,dependent: :destroy
 has_many :favorites, dependent: :destroy
 has_many :favorited_users, through: :favorites, source: :user
 
+has_many :likes, dependent: :destroy
+has_many :liked_users, through: :likes, source: :user
+
 
 validates_presence_of :name
 #------------create功能完成 回controller做show功能
@@ -18,6 +21,8 @@ validates_presence_of :name
 #function3-step3 掛載uploader
 mount_uploader :image, PhotoUploader
 #----轉到view _form頁面
+
+
 
 def is_favorited?(user)
   self.favorited_users.include?(user)
