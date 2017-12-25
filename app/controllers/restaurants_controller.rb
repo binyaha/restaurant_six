@@ -64,7 +64,7 @@ end
   end
 
   def ranking
-    @restaurant=Restaurant.first
+    @restaurants=Restaurant.order("favorites_count desc").limit(10)
   end
 
 end

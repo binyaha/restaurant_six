@@ -1,26 +1,40 @@
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      
-    </div>
+  <ul class="nav nav-pills">
+    <li role="presentation">
+      <%= link_to "最新動態", feeds_restaurants_path %>
+    </li>
+    <li role="presentation">
+      <%= link_to "首頁", restaurants_path %>
+    </li>
+    <li role="presentation" class="<%= "active" %>">
+      <%= link_to "Top10", ranking_restaurants_path %>
+    </li>
+  </ul>
+  <br >
+  
+    <% @restaurants.each do |restaurant| %>
+    <div class="row">
     <div class="col-md-4">
-      <%= image_tag @restaurant.image, width: '300px' %>
+      <%= image_tag restaurant.image, width: '300px' %>
     </div>
     
     <div class="col-md-8">
       <br>
       <div>
-        <h2>餐廳: <%= @restaurant.name %></h2>
-        <%= @restaurant.description %>
-        收藏數:<%= @restaurant.favorites_count %>
+        <h2>餐廳: <%= restaurant.name %></h2>
+        <%= restaurant.description %>
+        收藏數:<%= restaurant.favorites_count %>
       </div>
       <br>
       <div>
-        <%= link_to "Show", restaurant_path(@restaurant), class: "btn btn-primary" %>
-        <%= render partial: "shared/favorite" ,locals: {restaurant: @restaurant} %>
+        <%= link_to "Show", restaurant_path(restaurant), class: "btn btn-primary" %>
+        <%= render partial: "shared/favorite", locals: {restaurant: restaurant} %>
       </div>
 
     </div>
-  </div>
+    </div>
+    <br >
+    <% end %>
+  
 </div>
