@@ -16,9 +16,8 @@
 }
 
 
-.test {
-  border: 1px solid #ddd;
-  text-overflow:ellipsis;
+* {
+  word-wrap:break-word;
 }
 
 
