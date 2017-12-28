@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations',sessions: "users/sessions"  }
 #-------------開始做edit功能 回controller users
 
-  
+  resources :followships, only: [:create, :destroy]
+
 #function7-step2 給users新增路由
-  resources :users, only: [:show,:edit, :update]
+  resources :users, only: [:index,:show,:edit, :update]
 #---------看controller users
 
 
