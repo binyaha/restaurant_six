@@ -18,11 +18,14 @@
 <ul>
 
   <% @users.each do |user| %>
-    <li>
-      <%= user.name %>
-
-     <%= render partial: "shared/follow", locals: {user: user} %>
-    </li>
+    <div class="col-sm-3 col-xs-4 my-user">
+      <img class="my-photo" src="http://via.placeholder.com/100x100">
+      <h5 class="my-text text-primary"><%= user.name %></h5>
+        <div class="my-btn">
+        <%= render partial: "shared/follow", locals: {user: user} %>
+        </div>
+         <br>
+    </div>
   <% end %>
 
 </ul>
