@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  def index
+    @users = User.all
+  end
+
 #function7-step3 要傳給show的資料
   def show
     @user=User.find(params[:id]) #找到對應的user
