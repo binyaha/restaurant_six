@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+
+  has_many :followships, dependent: :destroy
+  has_many :followings, through: :followships
+
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
