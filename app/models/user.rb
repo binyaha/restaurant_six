@@ -29,4 +29,8 @@ end
 #-----------此時function1登入功能完成 可以進到rails console修改屬性測試，只有管理者可進到後台．
 #-----------接著做function2 restaurant後台CRUD功能 看toutes.rb
 
+def following?(user)
+  self.followings.include?(user)
+end
+
 end
