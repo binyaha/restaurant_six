@@ -6,6 +6,13 @@
     </div>
     <div class="col-xs-8">
       <h2><%= @user.name %></h2>
+      <h6>
+        <%= "#{@commented_restaurants.count}已評論餐廳" %>
+        <%= "#{@favorited_restaurants.count}已收藏餐廳" %>
+        <%= "#{@followings.count}followings" %>
+        <%= "#{@followers.count}followers" %>
+      </h6>
+
       <h4><%= @user.intro %></h4>
       
       <!-- 如果現在的user是現在profile的話 才出現編輯按鈕 -->
@@ -20,6 +27,41 @@
 <!-- 到controller user/Registrations 這是要另外產生的 -->
 
 <!-- function8-step3 顯示評論過的餐廳 -->
+
+
+<div class="col-sm-4">
+  <div class="panel panel-default " >
+    <div class="panel-heading">
+      <%= "#{@followings.count}followings" %>
+    </div>
+    <div class="panel-body">
+      <% @followings.each do |following| %>
+        <%= link_to user_path(following) do %>
+          <%= image_tag following.avatar,height: 50, width: 50, class: "img-circle" %>
+          <storng><%= following.name %></storng>
+          <hr>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="panel panel-default " >
+    <div class="panel-heading">
+      <%= "#{@followers.count}followers" %>
+    </div>
+    <div class="panel-body">
+      <% @followers.each do |follower| %>
+        <%= link_to user_path(follower) do %>
+          <%= image_tag follower.avatar,height: 50, width: 50, class: "img-circle" %>
+          <storng><%= follower.name %></storng>
+          <hr>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
+<div class="col-sm-8">
   <div class="panel panel-default " >
     <div class="panel-heading">
        <%= "#{@commented_restaurants.count}已評論餐廳" %>
@@ -44,5 +86,35 @@
     </div>
   </div>
 
-</div>
+
 <!-- 完成function8 to be continued -->
+
+  <div class="panel panel-default " >
+    <div class="panel-heading">
+       <%= "#{@favorited_restaurants.count}已收藏餐廳" %>
+    </div>
+    <div class="panel-body">
+      
+      <% @favorited_restaurants.each do |restaurant| %>
+        <!-- 重複出現過的餐廳不顯示 -->
+        <% if @temp != restaurant %>
+        <!-- 整個餐廳div 變成按鈕 -->
+        <%= link_to restaurant_path(restaurant) do %>
+          <div class="my-restaurant">
+            <div>
+              <%= image_tag restaurant.image, class: "restaurant-image"  %>
+            </div>
+            <h5><storng><%= restaurant.name %></storng></h5>
+          </div>
+        <% end %>
+        <% end %>
+        <% @temp=restaurant %>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+

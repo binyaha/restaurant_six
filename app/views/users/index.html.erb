@@ -14,18 +14,22 @@
   </ul>
   <br >
 
-
-<ul>
+<div class= "container">
+  <div class="panel panel-default " >
+    <div class="panel-heading">
+       <%= "美食達人" %>
+    </div>
+    <div class="panel-body">
 
   <% @users.each do |user| %>
     <div class="col-sm-3 col-xs-4 my-user">
       <img class="my-photo" src="http://via.placeholder.com/100x100">
       <h5 class="my-text text-primary"><%= user.name %></h5>
         <div class="my-btn">
-        <%= render partial: "shared/follow", locals: {user: user} %>
+          <%= render partial: "shared/follow", locals: {user: user} %>
         </div>
-         <br>
-    </div>
-  <% end %>
-
-</ul>
+        <br>
+      </div>
+    <% end %>
+  </div>
+</div>

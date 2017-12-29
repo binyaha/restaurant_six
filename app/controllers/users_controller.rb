@@ -12,6 +12,13 @@ class UsersController < ApplicationController
 #function8-step2 傳入被評論過的餐廳  
     @commented_restaurants=@user.restaurants.sort #為了刪除重複資料用的
     @temp={}  #跟第一筆資料比較用的
+
+
+    @favorited_restaurants = @user.favorited_restaurants
+    @followings=@user.followings
+    @followers=@user.followers
+
+
   end
 #----------看view users/show
 
