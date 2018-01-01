@@ -4,8 +4,13 @@ class User < ApplicationRecord
   has_many :followings, through: :followships
 
   has_many :inverse_followships, class_name: "Followship", foreign_key: "following_id"
-
   has_many :followers, through: :inverse_followships, source: :user
+
+  has_many :rfriendships, dependent: :destroy
+  has_many :rfriendings, through: :rfriendships
+
+  has_many :inverse_rfriendships, class_name: "Rfriendship", foreign_key: "rfriending_id"
+  has_many :addfriends, through: :inverse_rfriendships, source: :user
 
 
   # Include default devise modules. Others available are:
@@ -36,6 +41,34 @@ end
 
 def following?(user)
   self.followings.include?(user)
+end
+
+def friending?(user)
+  self.rfriendings.include?(user)
+end
+
+def test
+  first=self.rfriendings
+  
+  second=self.addfriends
+  (first+second).sort
+
+end
+
+def all_friends
+  first=self.rfriendings
+  temp2={}
+  second=self.addfriends
+  temps=(first+second).sort
+  temps.each_with_index do |temp , i|
+    if temp == temp2
+      temps[i]=nil
+    end
+    temp2=temp
+  end
+  temps.delete(nil)
+  return temps
+  
 end
 
 end

@@ -27,6 +27,7 @@
       <h5 class="my-text text-primary"><%= user.name %></h5>
         <div class="my-btn">
           <%= render partial: "shared/follow", locals: {user: user} %>
+          <%= render partial: "shared/friend", locals: {user: user} %>
         </div>
         <br>
       </div>

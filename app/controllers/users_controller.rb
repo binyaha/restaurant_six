@@ -44,6 +44,13 @@ class UsersController < ApplicationController
   #----------function7完成 到routes8 做顯示評論過的餐廳的功能 到model user建立關聯
 
 
+  def friend_list
+    @user=User.find(params[:id])
+    @friend_list=@user.rfriendings
+
+    @add_friends=@user.addfriends
+  end
+
   private
   #sorong parameter
     def user_params

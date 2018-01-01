@@ -1,0 +1,66 @@
+<div class= "container">
+  <div class="panel panel-default " >
+    <div class="panel-heading">
+       <%= "朋友們" %>
+    </div>
+    <div class="panel-body">
+
+  <% @friend_list.each do |friend| %>
+    <div class="col-sm-3 col-xs-4 my-user">
+      <img class="my-photo" src="http://via.placeholder.com/100x100">
+      <h5 class="my-text text-primary"><%= friend.name %></h5>
+        <div class="my-btn">
+          <%= render partial: "shared/follow", locals: {user: friend} %>
+          <%= render partial: "shared/friend", locals: {user: friend} %>
+        </div>
+        <br>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
+
+<div class= "container">
+  <div class="panel panel-default " >
+    <div class="panel-heading">
+       <%= "好友邀請" %>
+    </div>
+    <div class="panel-body">
+
+  <% @add_friends.each do |friend| %>
+    <div class="col-sm-3 col-xs-4 my-user">
+      <img class="my-photo" src="http://via.placeholder.com/100x100">
+      <h5 class="my-text text-primary"><%= friend.name %></h5>
+        <div class="my-btn">
+          <%= render partial: "shared/follow", locals: {user: friend} %>
+          <%= render partial: "shared/friend", locals: {user: friend} %>
+        </div>
+        <br>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
+
+<div class= "container">
+  <div class="panel panel-default " >
+    <div class="panel-heading">
+       <%= "好友相關" %>
+    </div>
+    <div class="panel-body">
+
+  <% @user.all_friends.each do |friend| %>
+    <div class="col-sm-3 col-xs-4 my-user">
+      <img class="my-photo" src="http://via.placeholder.com/100x100">
+      <h5 class="my-text text-primary"><%= friend.name %></h5>
+        <div class="my-btn">
+          <%= render partial: "shared/follow", locals: {user: friend} %>
+          <%= render partial: "shared/friend", locals: {user: friend} %>
+        </div>
+        <br>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
+

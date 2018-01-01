@@ -1,0 +1,5 @@
+  <% if current_user.friending?(user) %>
+    <%= link_to 'UnFriend', rfriendship_path(user),class: "btn btn-primary", method: :delete %>
+  <% else %>
+    <%= link_to 'add friend', rfriendships_path(rfriending_id: user),class: "btn btn-danger", method: :post %>
+  <% end %>

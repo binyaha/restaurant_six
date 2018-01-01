@@ -6,12 +6,18 @@ Rails.application.routes.draw do
   resources :followships, only: [:create, :destroy]
 
 #function7-step2 給users新增路由
-  resources :users, only: [:index,:show,:edit, :update]
+  resources :users, only: [:index,:show,:edit, :update] do
+    member do
+      get :friend_list
+    end
+  end
 #---------看controller users
+
+  resources :rfriendships, only: [:create, :destroy]
 
 
 #function5-step1 增加前台路由 do是之後做comment才會增加的
-resources :restaurants, only: [:index, :show] do
+  resources :restaurants, only: [:index, :show] do
 #----------------看controller restaurants(前台的)
 
 #function9-step1 

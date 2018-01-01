@@ -18,6 +18,7 @@
       <!-- 如果現在的user是現在profile的話 才出現編輯按鈕 -->
       <% if @user == current_user %>
         <%= link_to "編輯", edit_user_path(@user), class: "btn btn-primary" %>
+        <%= link_to "我的朋友", friend_list_user_path(@user), class: "btn btn-primary" %>
       <% else %>
         <% flash[:alert]= "你這偷窺狂想幹嘛 >///<" %>
       <% end %>
